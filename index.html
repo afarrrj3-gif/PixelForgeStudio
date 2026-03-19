@@ -1,1 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelForge - Professional Website Development</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
+    <nav>
+        <div class="logo" onclick="showPage('home')">
+            <i class="fas fa-fire"></i> PixelForge
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="scrollToSection('services')">Services</a></li>
+            <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+            <li><a href="#" onclick="scrollToSection('pricing')">Pricing</a></li>
+            <li><a href="#" onclick="scrollToSection('contact')">Contact</a></li>
+        </ul>
+        <button class="cta-nav" onclick="scrollToSection('services')">Start Project</button>
+    </nav>
+
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Crafting Digital Excellence</h1>
+                <p>We build stunning, high-performance websites that transform your business vision into powerful digital experiences.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="openConsultModal()">
+                        <i class="fas fa-comments"></i> Free Consultation
+                    </button>
+                    <button class="btn-secondary" onclick="showPage('portfolio')">
+                        <i class="fas fa-eye"></i> View Our Works
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive digital solutions tailored to elevate your online presence</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Company Profile</h3>
+                    <p>Elegant and professional websites that showcase your brand identity with stunning visuals.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛒</div>
+                    <h3>E-Commerce Solutions</h3>
+                    <p>Full-featured online stores with secure payment gateways and inventory management.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Web Applications</h3>
+                    <p>Custom web apps with robust functionality and API integrations built for scale.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing" id="pricing">
+            <div class="section-title">
+                <h2>Investment Plans</h2>
+                <p>Transparent pricing for every stage of your business growth</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$299 <span>/project</span></div>
+                    <ul class="pricing-features">
+                        <li>Up to 5 Pages</li>
+                        <li>Mobile Responsive</li>
+                        <li>Basic SEO Setup</li>
+                        <li>1 Month Support</li>
+                    </ul>
+                    <button class="btn-pricing btn-pricing-outline" onclick="openConsultModal()">Get Started</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="badge">POPULAR</div>
+                    <h3>Business</h3>
+                    <div class="price">$699 <span>/project</span></div>
+                    <ul class="pricing-features">
+                        <li>Up to 10 Pages</li>
+                        <li>Custom Admin Panel</li>
+                        <li>Advanced SEO</li>
+                        <li>3 Months Support</li>
+                    </ul>
+                    <button class="btn-pricing btn-pricing-full" onclick="openConsultModal()">Get Started</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <ul class="pricing-features">
+                        <li>Unlimited Pages</li>
+                        <li>Custom Web Application</li>
+                        <li>API Integration</li>
+                        <li>12 Months Support</li>
+                    </ul>
+                    <button class="btn-pricing btn-pricing-outline" onclick="openConsultModal()">Contact Us</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's discuss how we can help grow your business</p>
+            <form class="contact-form" id="contactForm" onsubmit="handleContact(event)">
+                <div class="form-group">
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" id="contactName" placeholder="Your Full Name" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input type="email" id="contactEmail" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-phone input-icon"></i>
+                    <input type="tel" id="contactPhone" placeholder="Phone / WhatsApp" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="contactMessage" placeholder="Tell us about your project..." required></textarea>
+                </div>
+                <button type="submit">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </section>
+    </div>
+
+    <div id="portfolio" class="page">
+        <div class="portfolio-page">
+            <div class="portfolio-header">
+                <div>
+                    <h2>Our Portfolio</h2>
+                    <p>Showcasing our finest digital craftsmanship</p>
+                </div>
+                <button class="back-btn" onclick="showPage('home')">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Project">
+                    <div class="portfolio-overlay">
+                        <h3>LuxEstate E-Commerce</h3>
+                        <p>Modern real estate platform</p>
+                        <a href="#" target="_blank" class="portfolio-link">View Live Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80" alt="Project">
+                    <div class="portfolio-overlay">
+                        <h3>TechStart Corporate</h3>
+                        <p>Sleek company profile</p>
+                        <a href="#" target="_blank" class="portfolio-link">View Live Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80" alt="Project">
+                    <div class="portfolio-overlay">
+                        <h3>FitLife Mobile App</h3>
+                        <p>High-converting landing page</p>
+                        <a href="#" target="_blank" class="portfolio-link">View Live Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Project">
+                    <div class="portfolio-overlay">
+                        <h3>Analytics Dashboard</h3>
+                        <p>Data visualization app</p>
+                        <a href="#" target="_blank" class="portfolio-link">View Live Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="consultModal" class="modal-overlay" onclick="closeConsultModal(event)">
+        <div class="modal-container" onclick="event.stopPropagation()">
+            <button class="close-modal" onclick="closeConsultModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <div class="modal-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Start Your Project</h3>
+                <p>Choose your preferred channel</p>
+            </div>
+            <div class="modal-body">
+                <div class="platform-grid">
+                    <a href="https://wa.me/6289679520905?text=Hi%20PixelForge!%20I'm%20interested%20in%20your%20services" target="_blank" class="platform-card whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                        <small>Fastest</small>
+                    </a>
+                    <a href="https://t.me/PixelForgeStudi0" target="_blank" class="platform-card telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>Telegram</span>
+                        <small>@PixelForgeStudi0</small>
+                    </a>
+                    <a href="https://www.instagram.com/pixel_forge_studi0" target="_blank" class="platform-card instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                        <small>@pixel_forge_studi0</small>
+                    </a>
+                    <a href="mailto:pixelforge.v1.studio@gmail.com" target="_blank" class="platform-card email">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                        <small>Send message</small>
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="response-time"><i class="fas fa-bolt"></i> Avg. response: 15 min</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLanguage('en')">English</button>
+        <button class="lang-btn" onclick="setLanguage('id')">Indonesia</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 PixelForge Digital Agency. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showPage(pageName) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageName).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            history.pushState(null, null, '#' + pageName);
+        }
+
+        function scrollToSection(id) {
+            showPage('home');
+            setTimeout(() => document.getElementById(id).scrollIntoView({ behavior: 'smooth' }), 100);
+        }
+
+        function openConsultModal() {
+            document.getElementById('consultModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeConsultModal(event) {
+            if (!event || event.target.id === 'consultModal' || event.target.closest('.close-modal')) {
+                document.getElementById('consultModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function handleContact(e) {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const phone = document.getElementById('contactPhone').value;
+            const message = document.getElementById('contactMessage').value;
+            const date = new Date().toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+            
+            const formattedMessage = `🚀 *NEW INQUIRY - PIXELFORGE*%0A%0A📅 ${date}%0A━━━━━━━━━━━━━%0A%0A👤 *Client:*%0A• Name: ${name}%0A• Email: ${email}%0A• Phone: ${phone}%0A%0A📝 *Project:*%0A${message}%0A%0A━━━━━━━━━━━━━%0A📎 Source: Website Form`;
+            
+            window.open(`https://wa.me/6289679520905?text=${formattedMessage}`, '_blank');
+            
+            const btn = e.target.querySelector('button');
+            btn.innerHTML = '<i class="fas fa-check"></i> Sent to WhatsApp!';
+            btn.style.background = 'linear-gradient(135deg, #10B981, #059669)';
+            setTimeout(() => {
+                document.getElementById('contactForm').reset();
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                btn.style.background = '';
+            }, 3000);
+        }
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            if (lang === 'id') {
+                alert('Bahasa Indonesia coming soon!');
+                document.querySelectorAll('.lang-btn')[0].classList.add('active');
+                document.querySelectorAll('.lang-btn')[1].classList.remove('active');
+            }
+        }
+
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeConsultModal(); });
+        
+        if (window.location.hash === '#portfolio') showPage('portfolio');
+        
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.1)';
+                nav.style.padding = '0.8rem 5%';
+            } else {
+                nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.05)';
+                nav.style.padding = '1.2rem 5%';
+            }
+        });
+    </script>
+</body>
+              </html>
+  
